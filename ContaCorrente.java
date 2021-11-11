@@ -12,6 +12,7 @@ public class ContaCorrente{
             status=true;
             saldo =saldo-valor; 
             limite=limite+saldo;
+            limUtilizado=limite+saldo;
               
         } 
         else{
