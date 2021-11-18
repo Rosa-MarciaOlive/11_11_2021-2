@@ -1,37 +1,35 @@
 public class ContaCorrente{
-    private int numero;
+    private double numero;
     private double saldo;
     private boolean status;
     private double limite=2000;
-    private double limUtilizado;
+    //private double limiUtilizado;
+    //private int deposita;
 
-    //status true no cheque especial
-    //Status false estou com conta azul
-    public void saca(double valor) {       
+    public void depositar(double valor){
+        saldo+=valor;
+    }
+
+    //status true, cliente está no cheque especial
+    //Status false, Cliente não esta no cheque espeial
+    public void saque (double valor) {       
         if(valor > saldo && limite <= 2000){
             status=true;
             saldo =saldo-valor; 
             limite=limite+saldo;
-            limUtilizado=limite+saldo;
+           // limitilizado=limite+saldo;   
               
-        } 
-        else{
+        }else{
             status=false;
-            saldo=saldo-valor;
+            //saldo=saldo-valor;
         }
-        
-
-
-
-    //
-    public void deposita(double valor){
-        saldo+=valor;
+   
     }
  
     //automatico --source...
-    public int getNumero() {
+    public double getNumero() {
         return numero;
-    }public void setNumero(int numero) {
+    }public void setNumero(double numero) {
         this.numero = numero;
     }
 
@@ -53,11 +51,13 @@ public class ContaCorrente{
         this.limite = limite;
     }
 
-    public double getLimUtilizado() {
-        return limUtilizado;
-    }public void setLimUtilizado(double limUtilizado) {
-        this.limUtilizado = limUtilizado;
+    public void limiUtilizado(){
+        if(limite !=2000){
+            double utilizado;
+            utilizado =getLimite()-2000;
+            System.out.println("Limite utilizado: "+utilizado);
+            }
+        }
     }
     
-        
-}
+    
